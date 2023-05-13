@@ -18,9 +18,8 @@ private:
 	bool initialized;
 	TArray<class AAgent *> Agents;
 
-	FVector rule1(AAgent* focusBoid);
-	FVector rule2(AAgent* focusBoid);
-	FVector rule3(AAgent* focusBoid);
-	FVector boundPosition(AAgent* focusBoid);
-	FVector tendToPlace(AAgent* focusBoid);
+	FVector ruleOne(AAgent* focusBoid);
+	FVector ruleTwo(AAgent* focusBoid);
+	FVector ruleThree(AAgent* focusBoid);
+	FVector bound(AAgent* focusBoid);
 };

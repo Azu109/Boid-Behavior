@@ -33,10 +33,10 @@ void UFlockingManager::Flock() {
 // Pseudo code retrieved from http://www.kfish.org/boids/pseudocode.html
 
 		for(auto boid : Agents) {
-			auto v1 = rule1(boid);
-			auto v2 = rule2(boid);
-			auto v3 = rule3(boid);
-      auto v4 = boundPosition(boid);
+			auto v1 = ruleOne(boid);
+			auto v2 = ruleTwo(boid);
+			auto v3 = ruleThree(boid);
+      auto v4 = bound(boid);
 
 			boid->Velocity += v1 + v2 + v3 + v4 ;
       boid->Velocity = boid->Velocity.GetClampedToMaxSize(MAX_SPEED);
@@ -45,7 +45,7 @@ void UFlockingManager::Flock() {
 }
 
 // Rule 1: Boids try to fly towards the centre of mass of neighbouring boids.
-FVector UFlockingManager::rule1(AAgent* focusBoid) {
+FVector UFlockingManager::ruleOne(AAgent* focusBoid) {
     FVector centersTotal;
 
     for(auto boid : Agents) {
@@ -60,7 +60,7 @@ FVector UFlockingManager::rule1(AAgent* focusBoid) {
 }
 
 // Rule 2: Boids try to keep a small distance away from other objects (including other boids).
-FVector UFlockingManager::rule2(AAgent* focusBoid) {
+FVector UFlockingManager::ruleTwo(AAgent* focusBoid) {
     FVector vec;
 
     for(auto boid : Agents) {
@@ -76,7 +76,7 @@ FVector UFlockingManager::rule2(AAgent* focusBoid) {
 }
 
 // Rule 3: Boids try to match velocity with near boids.
-FVector UFlockingManager::rule3(AAgent* focusBoid) {
+FVector UFlockingManager::ruleThree(AAgent* focusBoid) {
     FVector velocitiesTotal;
 
     for(auto boid : Agents) {
@@ -90,7 +90,7 @@ FVector UFlockingManager::rule3(AAgent* focusBoid) {
     return (averageVelocity - focusBoid->Velocity) / 8;
 }
 
-FVector UFlockingManager::boundPosition(AAgent* focusBoid) {
+FVector UFlockingManager::bound(AAgent* focusBoid) {
     FVector vec;
     
     FVector location = focusBoid->GetActorLocation();
