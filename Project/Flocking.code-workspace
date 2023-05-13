@@ -1,0 +1,28 @@
+{
+	"folders": [
+		{
+			"name": "Flocking",
+			"path": "."
+		},
+		{
+			"name": "UE5",
+			"path": "C:\\Users\\brigh\\Documents\\My Games\\UE_5.1"
+		}
+	],
+	"settings": {
+		"typescript.tsc.autoDetect": "off",
+		"files.associations": {
+			"random": "cpp",
+			"*.ipp": "cpp",
+			"xutility": "cpp",
+			"filesystem": "cpp",
+			"*.rh": "cpp"
+		}
+	},
+	"extensions": {
+		"recommendations": [
+			"ms-vscode.cpptools",
+			"ms-dotnettools.csharp"
+		]
+	}
+}
